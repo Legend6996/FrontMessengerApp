@@ -1,0 +1,49 @@
+.animInput {
+	@apply absolute left-0 top-0 text-black dark:text-white w-full rounded-lg border-2 border-gray-200 bg-transparent px-4 py-[0.6rem] outline-none transition-all duration-[200ms] hover:border-primaryLight1 focus:border-primaryLight1 focus:ring-[0.8px];
+}
+
+.animLabel {
+	@apply absolute left-4 pointer-events-none bg-body dark:bg-bodyDark text-gray-400 top-[0.7rem] cursor-text ease-out transition-all duration-[200ms];
+}
+
+.animInput:focus ~ .animLabel,
+.animInput:valid ~ .animLabel {
+	@apply transform -translate-y-5 -translate-x-2 px-2 text-xs;
+}
+
+.animInput:focus ~ .animLabel,
+.animInput:hover ~ .animLabel {
+	@apply text-primary;
+}
+
+/* .animInput {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	border-radius: 0.5rem;
+	border: 2px solid #cbd5e0;
+	background-color: transparent;
+	padding: 0.5rem 0.75rem;
+	transition: border-color 200ms;
+}
+
+.animInput:hover {
+	border-color: rgba(var(--color-primary-rgb), 0.5);
+}
+
+.animInput:focus {
+	border-color: var(--color-primary);
+	outline: none;
+}
+
+.animLabel {
+	position: absolute;
+	left: 0.75rem;
+	top: 0.7rem;
+	transition: top 200ms;
+}
+
+.animInput:focus ~ .animLabel {
+	top: 0.5rem;
+} */

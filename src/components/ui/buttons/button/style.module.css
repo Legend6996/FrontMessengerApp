@@ -1,0 +1,15 @@
+.btn {
+	@apply flex items-center justify-center rounded-lg transition-all duration-[200] disabled:pointer-events-none;
+}
+
+.btnSm {
+	@apply px-3 py-1;
+}
+
+.btnMd {
+	@apply px-6 py-3;
+}
+
+.btnLg {
+	@apply px-8 py-4;
+}

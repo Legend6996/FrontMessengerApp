@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.main-container {
+  @apply min-w-[320px];
+}
+.multi-gradient-text {
+  background: linear-gradient(
+    to right,
+    #a855f7,
+    #ec4899,
+    #eab308,
+    #ec4899,
+    #a855f7,
+    #ec4899,
+    #eab308
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-animation {
+  animation: gradient 1.5s linear infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent main-gradient;
+}
+
+.main-gradient {
+  @apply bg-gradient-to-r from-secondary to-primary;
+}
