@@ -23,7 +23,8 @@ const passwordSchema = z
 
 export const registerShchema = z
 	.object({
-		name: z.string().min(2, "Минимум 2 символа"),
+		name: z.string().min(2, "Минимум 2 символа").max(25, "Максимум 25 символов"),
+		userName: z.string().min(2, "Минимум 2 символа").max(25, "Максимум 25 символов"),
 		email: z.string().email("Введите корректный Email"),
 		password: passwordSchema,
 		confirmPassword: z.string(),
@@ -36,6 +37,11 @@ export const registerShchema = z
 export interface ILogin {
   email: string,
   password: string,
+}
+
+export interface ITokens {
+  accessToken: string;
+  refreshToken: string;
 }
 
 export type IRegister = z.infer<typeof registerShchema>;

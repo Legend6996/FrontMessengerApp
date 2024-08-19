@@ -1,25 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import Button from "../ui/buttons/button/Button";
 import AnimInput from "../ui/inputs/AnimInput/AnimInput";
 import AnimPasswordInput from "../ui/inputs/password/AnimPasswordInput";
-import { ILogin } from "@/lib/models/Auth";
-import Spinner from "../ui/spinner/Spinner";
+import { ILogin, ITokens } from "@/lib/models/Auth";
+import { authApi } from "@/servicesApi/AuthApi";
+import { CustomError } from "@/servicesApi/BaseApi";
+import { saveRefreshToken, saveToken } from "@/utils/helpers/JwtHelper";
+import { useRouter } from "next/navigation";
+import { APP_PAGES } from "@/constants/pages-url";
 
 type Props = {};
 
 const Login = (props: Props) => {
-	const {
-		handleSubmit,
-		formState: { isSubmitting },
-		control,
-	} = useForm<ILogin>({
+	const [postLogin, { isLoading }] = authApi.useLoginMutation();
+	const [error, setError] = useState<string>("");
+	const router = useRouter();
+	const { handleSubmit, control } = useForm<ILogin>({
 		mode: "onChange",
 	});
 
 	const onSubmit: SubmitHandler<ILogin> = async (data) => {
-		console.log(data);
-		await new Promise((resolve) => setTimeout(resolve, 1000));
+		try {
+			const tokens: ITokens = await postLogin(data).unwrap();
+			saveToken(tokens.accessToken);
+			saveRefreshToken(tokens.refreshToken);
+			router.replace(APP_PAGES.HOME);
+		} catch (err) {
+			const error = err as CustomError;
+
+			if (error.data.text.toLowerCase().includes("invalid")) {
+				setError("Неверный логин или пароль.");
+			} else {
+				setError(error.data.text);
+			}
+			console.log(err);
+		}
 	};
 
 	return (
@@ -27,6 +43,7 @@ const Login = (props: Props) => {
 			className="flex flex-col gap-8"
 			onSubmit={handleSubmit(onSubmit)}
 		>
+			{error && <span>{error}</span>}
 			<Controller
 				name="email"
 				control={control}
@@ -53,8 +70,8 @@ const Login = (props: Props) => {
 			<Button
 				text="Войти"
 				type="submit"
-        isLoading={isSubmitting}
-        size="md"
+				isLoading={isLoading}
+				size="md"
 				className="text-primary hover:bg-primaryLight3"
 			/>
 		</form>

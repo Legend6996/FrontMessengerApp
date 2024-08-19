@@ -1,8 +1,8 @@
 class PAGES {
   private root = ''
 
-  CHATS = `${this.root}/chats`
-
+  AUTH = `/auth`
+  HOME = `${this.root}/chats`
 }
 
 export const APP_PAGES = new PAGES();
