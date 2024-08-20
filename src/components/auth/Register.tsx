@@ -11,12 +11,12 @@ import { CustomError } from "@/servicesApi/BaseApi";
 import { saveToken, saveRefreshToken } from "@/utils/helpers/JwtHelper";
 import { APP_PAGES } from "@/constants/pages-url";
 import { useRouter } from "next/navigation";
+import { showToast } from "@/lib/toast/ShowToast";
 
 type Props = {};
 
 const Register = (props: Props) => {
 	const [postRegister, { isLoading }] = authApi.useRegisterMutation();
-	const [error, setError] = useState<string>("");
 	const router = useRouter();
 	const {
 		handleSubmit,
@@ -36,12 +36,21 @@ const Register = (props: Props) => {
 		} catch (err) {
 			const error = err as CustomError;
 
-			if (error.data.text.toLowerCase().includes("email")) {
-				setError("Пользователь с таким email уже существует.");
-			} else if (error.data.text.toLowerCase().includes("username")) {
-				setError("Пользователь с таким логином уже существует.");
+			if (error.data?.text.toLowerCase().includes("email")) {
+				showToast({
+					text: "Пользователь с таким email уже существует.",
+					type: "error",
+				});
+			} else if (error.data?.text.toLowerCase().includes("username")) {
+				showToast({
+					text: "Пользователь с таким логином уже существует.",
+					type: "error",
+				});
 			} else {
-				setError(error.data.text);
+				showToast({
+					text: "Ошибка!",
+					type: "error",
+				});
 			}
 			console.log(err);
 		}
@@ -53,7 +62,6 @@ const Register = (props: Props) => {
 			onSubmit={handleSubmit(onSubmit)}
 			autoComplete="off"
 		>
-			{error && <span>{error}</span>}
 			<Controller
 				name="name"
 				control={control}

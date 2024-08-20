@@ -8,7 +8,7 @@ import React, { useState } from "react";
 
 type Props = {};
 
-const LoginPage: NextPage = (props: Props) => {
+const AuthPage: NextPage = (props: Props) => {
 	const [isLogin, setIsLogin] = useState<boolean>(true);
 
 	return (
@@ -72,4 +72,4 @@ const LoginPage: NextPage = (props: Props) => {
 	);
 };
 
-export default LoginPage;
+export default AuthPage;

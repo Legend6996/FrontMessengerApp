@@ -9,12 +9,12 @@ import { CustomError } from "@/servicesApi/BaseApi";
 import { saveRefreshToken, saveToken } from "@/utils/helpers/JwtHelper";
 import { useRouter } from "next/navigation";
 import { APP_PAGES } from "@/constants/pages-url";
+import { showToast } from "@/lib/toast/ShowToast";
 
 type Props = {};
 
 const Login = (props: Props) => {
 	const [postLogin, { isLoading }] = authApi.useLoginMutation();
-	const [error, setError] = useState<string>("");
 	const router = useRouter();
 	const { handleSubmit, control } = useForm<ILogin>({
 		mode: "onChange",
@@ -29,10 +29,16 @@ const Login = (props: Props) => {
 		} catch (err) {
 			const error = err as CustomError;
 
-			if (error.data.text.toLowerCase().includes("invalid")) {
-				setError("Неверный логин или пароль.");
+			if (error.data?.text.toLowerCase().includes("invalid")) {
+				showToast({
+					text: "Неверный логин или пароль.",
+					type: "error",
+				});
 			} else {
-				setError(error.data.text);
+				showToast({
+					text: "Ошибка!",
+					type: "error",
+				});
 			}
 			console.log(err);
 		}
@@ -43,7 +49,6 @@ const Login = (props: Props) => {
 			className="flex flex-col gap-8"
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			{error && <span>{error}</span>}
 			<Controller
 				name="email"
 				control={control}
