@@ -77,7 +77,7 @@ const Login = (props: Props) => {
 				type="submit"
 				isLoading={isLoading}
 				size="md"
-				className="text-primary hover:bg-primaryLight3"
+				className="text-primary rounded-lg hover:bg-primaryLight3"
 			/>
 		</form>
 	);

@@ -4,7 +4,7 @@
 
 
 .main-container {
-  @apply min-w-[320px];
+  @apply min-w-[320px] min-h-screen;
 }
 .multi-gradient-text {
   background: linear-gradient(
@@ -41,4 +41,41 @@
 
 .main-gradient {
   @apply bg-gradient-to-r from-secondary to-primary;
+}
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  
+  .hide-scrollbar ::-webkit-scrollbar {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: inherit;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 100vh;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: white;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: inherit;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: #2d2d47;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #2d2d47;
+  }
 }

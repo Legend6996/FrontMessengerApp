@@ -5,56 +5,67 @@ import Spinner from "../../spinner/Spinner";
 import styles from "./style.module.css";
 
 type Props = {
-	text: string;
-	onClick?: () => void;
-	className?: string;
-	isLoading?: boolean;
-	disabled?: boolean;
+  text?: string;
+  onClick?: () => void;
+  className?: string;
+  isLoading?: boolean;
+  disabled?: boolean;
   size?: "sm" | "md" | "lg";
-	href?: string;
-	type?: "button" | "submit" | "reset";
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  iconClassName?: string;
 };
 
 const Button: FC<Props> = ({
-	text,
-	onClick,
-	className,
-	isLoading = false,
-	disabled = false,
+  text,
+  onClick,
+  className,
+  isLoading = false,
+  disabled = false,
   size,
-	href,
-	type = "button",
+  href,
+  type = "button",
+  icon: Icon,
+  iconClassName,
 }) => {
-	const buttonClasses = classNames(
-		styles.btn,
-		{ [styles.btnSm]: size === "sm" }, 
-		{ [styles.btnMd]: size === "md" }, 
-		{ [styles.btnLg]: size === "lg" }, 
-		className || "",
-	);
+  const buttonClasses = classNames(
+    styles.btn,
+    { [styles.btnSm]: size === "sm" },
+    { [styles.btnMd]: size === "md" },
+    { [styles.btnLg]: size === "lg" },
+    className || "",
+  );
 
-	return (
-		<>
-			{href ? (
-				<Link
-					href={href}
-					className={buttonClasses}
-					onClick={onClick}
-				>
-					{text}
-				</Link>
-			) : (
-				<button
-					className={buttonClasses}
-					onClick={onClick}
-					disabled={disabled || isLoading}
-					type={type}
-				>
-					{isLoading ? <Spinner className="size-6 fill-primary" /> : text}
-				</button>
-			)}
-		</>
-	);
+  const renderContent = () => (
+    <div className="flex items-center">
+      {Icon && !isLoading && <Icon className={`size-6 ${text ? "mr-2" : ""} ${iconClassName}`} />}
+      {isLoading ? <Spinner className="size-6 fill-primary" /> : text}
+    </div>
+  );
+
+  return (
+    <>
+      {href ? (
+        <Link
+          href={href}
+          className={buttonClasses}
+          onClick={onClick}
+        >
+          {renderContent()}
+        </Link>
+      ) : (
+        <button
+          className={buttonClasses}
+          onClick={onClick}
+          disabled={disabled || isLoading}
+          type={type}
+        >
+          {renderContent()}
+        </button>
+      )}
+    </>
+  );
 };
 
 export default Button;
