@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import Button from "../ui/buttons/button/Button";
-import AnimInput from "../ui/inputs/AnimInput/AnimInput";
+import AnimInput from "../ui/inputs/animInput/AnimInput";
 import InputError from "../ui/inputs/InputError";
 import AnimPasswordInput from "../ui/inputs/password/AnimPasswordInput";
 import { authApi } from "@/servicesApi/AuthApi";
@@ -139,7 +139,7 @@ const Register = (props: Props) => {
 				type="submit"
 				isLoading={isLoading}
 				size="md"
-				className="text-primary rounded-lg hover:bg-primaryLight3"
+				className="rounded-lg text-primary lg:hover:bg-primaryLight3"
 			/>
 		</form>
 	);

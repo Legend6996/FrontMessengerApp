@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import AnimInput, { InputProps } from "../AnimInput/AnimInput";
+import AnimInput from "../animInput/AnimInput";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import { InputProps } from "../SimpleInput";
 
 const AnimPasswordInput = (props: InputProps) => {
 	const [isShow, setIsShow] = useState(false);
@@ -8,7 +9,7 @@ const AnimPasswordInput = (props: InputProps) => {
 		...props,
 		type: isShow ? "text" : "password",
 	};
-  
+
 	return (
 		<div className="relative">
 			<div

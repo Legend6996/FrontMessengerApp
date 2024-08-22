@@ -1,5 +1,5 @@
 .animInput {
-	@apply absolute left-0 top-0 text-black dark:text-white w-full rounded-lg border-2 border-gray-200 bg-transparent px-4 py-[0.6rem] outline-none transition-all duration-[200ms] hover:border-primaryLight1 focus:border-primaryLight1 focus:ring-[0.8px];
+	@apply absolute left-0 top-0 text-black dark:text-white w-full rounded-lg border-2 border-gray-200 bg-transparent px-4 py-[0.6rem] outline-none transition-all duration-[200ms] lg:hover:border-primaryLight1 focus:border-primaryLight1 focus:ring-[0.8px];
 }
 
 .animLabel {

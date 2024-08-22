@@ -1,6 +1,6 @@
 type ClassValue = string | { [key: string]: boolean };
 
-function ClassNames(...args: ClassValue[]): string {
+function classNames(...args: ClassValue[]): string {
 	const classes: string[] = [];
 
 	args.forEach(arg => {
@@ -18,4 +18,4 @@ function ClassNames(...args: ClassValue[]): string {
 	return classes.join(' ');
 }
 
-export default ClassNames;
+export default classNames;

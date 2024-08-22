@@ -5,16 +5,17 @@ import React from "react";
 type Props = {
 	name: string;
 	img?: string;
-	size?: "lg" | "md" | "sm";
+	size?: "lg" | "md" | "sm" | "xs";
 	className?: string;
 };
 
 const Avatar = ({ name, img, size, className }: Props) => {
 	const avatarClasses = ClassNames(
 		"rounded-full",
-		{ "size-14 min-h-14 min-w-14": size === "lg" },
-		{ "size-12 min-h-12 min-w-12": size === "md" },
-		{ "size-10 min-h-10 min-w-10": size === "sm" },
+		{ "size-14 min-h-14 min-w-14 text-xl": size === "lg" },
+		{ "size-12 min-h-12 min-w-12 text-xl": size === "md" },
+		{ "size-10 min-h-10 min-w-10 text-xl": size === "sm" },
+		{ "size-8 min-h-8 min-w-8 text-md": size === "xs" },
 		className || "",
 	);
 
@@ -31,7 +32,7 @@ const Avatar = ({ name, img, size, className }: Props) => {
 	if (name) {
 		return (
 			<div
-				className={`flex items-center justify-center bg-primaryLight1 text-xl text-white ${avatarClasses}`}
+				className={`flex items-center justify-center bg-primaryLight1 text-white ${avatarClasses}`}
 			>
 				{name[0].toUpperCase()}
 			</div>

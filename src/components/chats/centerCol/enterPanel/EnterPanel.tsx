@@ -1,8 +1,12 @@
 import Button from "@/components/ui/buttons/button/Button";
+import Dropdown from "@/components/ui/dropdown/Dropdown";
+import AutoTextArea from "@/components/ui/inputs/autoTextArea/AutoTextArea";
 import {
 	ArrowTopRightOnSquareIcon,
 	ArrowUpIcon,
 	EyeIcon,
+	PaperAirplaneIcon,
+	PaperClipIcon,
 } from "@heroicons/react/24/outline";
 import React from "react";
 
@@ -12,11 +16,22 @@ const EnterPanel = (props: Props) => {
 	return (
 		<>
 			<form>
-				<div className="flex gap-2">
-					<div className="rounded-main w-full bg-body px-2 py-4">fsadfsa</div>
+				<div className="flex items-end gap-2">
+					<div className="flex w-full items-center gap-2 rounded-main bg-body pl-2 pr-5 md:gap-5">
+						<Button
+							icon={PaperClipIcon}
+							iconClassName="size-5 md:size-7 text-gray-700"
+							className="rounded-main p-2 lg:hover:bg-gray-200"
+						/>
+						<AutoTextArea
+							className="py-3 md:py-5"
+							placeholder="Сообщение"
+						/>
+					</div>
 					<Button
-						icon={ArrowUpIcon}
-						className="rounded-full bg-body px-4 hover:bg-primary hover:text-white"
+						icon={PaperAirplaneIcon}
+						iconClassName=" size-5 md:size-6"
+						className="rounded-full bg-body p-3 md:p-5 lg:hover:bg-primary lg:hover:text-white"
 					/>
 				</div>
 			</form>

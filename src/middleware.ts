@@ -8,13 +8,13 @@ export async function middleware(request: NextRequest, response: NextResponse) {
 	const refreshToken = cookies.get(REFRESH_TOKEN_KEY)?.value;
 	const isLoginPage = url.includes(APP_PAGES.AUTH);
 
-	if (isLoginPage && refreshToken) {
-		return NextResponse.redirect(new URL(APP_PAGES.HOME, url));
-	}
+	// if (isLoginPage && refreshToken) {
+	// 	return NextResponse.redirect(new URL(APP_PAGES.HOME, url));
+	// }
 
-	if (!isLoginPage && !refreshToken) {
-		return NextResponse.redirect(new URL(APP_PAGES.AUTH, request.url));
-	}
+	// if (!isLoginPage && !refreshToken) {
+	// 	return NextResponse.redirect(new URL(APP_PAGES.AUTH, request.url));
+	// }
 
 	return NextResponse.next();
 }

@@ -2,8 +2,6 @@
 import { userApi } from "@/servicesApi/UserApi";
 import React from "react";
 import ChatList from "./leftCol/chats/ChatList";
-import AnimInput from "../ui/inputs/AnimInput/AnimInput";
-import { Bars3Icon, Bars4Icon } from "@heroicons/react/24/solid";
 import MainSearchHeader from "./leftCol/header/MainSearchHeader";
 import Head from "./centerCol/Head";
 import MessagesContainer from "./centerCol/MessagesContainer";
@@ -20,7 +18,7 @@ const Chats = (props: Props) => {
 					<MainSearchHeader />
 					<ChatList />
 				</div>
-				<div className="col-span-full bg-green-400 flex h-screen flex-col md:col-span-8 xl:col-span-9">
+				<div className="col-span-full bg-gray-100 flex h-dvh flex-col md:col-span-8 xl:col-span-9">
 					<Head
 						name="Bob"
 						status="online"
