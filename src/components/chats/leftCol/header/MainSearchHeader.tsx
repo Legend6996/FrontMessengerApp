@@ -10,24 +10,20 @@ const MainSearchHeader = (props: Props) => {
 	const items = Array(7)
 		.fill(null)
 		.map((_, index) => ({
-			text: `${index + 1} afsdfa sdf af ds`,
+			text: `${index + 1} Item`,
 			icon: Bars3BottomLeftIcon,
 			onClick: () => console.log(index),
 		}));
 
 	return (
 		<>
-			<div className="flex items-center gap-1 px-2 py-3">
-				{/* <Button
-					icon={Bars3Icon}
-					iconClassName="size-7 text-gray-700"
-					className="mx-2 rounded-lg p-2 lg:hover:bg-gray-200"
-				/> */}
+			<div className="flex items-center gap-1 px-3 py-3">
 				<Dropdown
+					direction="bottom left"
 					items={items}
 					btnIcon={Bars3BottomLeftIcon}
-          iconClassName="size-7 text-gray-700"
-					btnClassName="mx-2 rounded-lg p-2 lg:hover:bg-gray-200"
+					iconClassName="size-7 text-gray-700"
+					btnClassName="mr-2 rounded-lg p-2 lg:hover:bg-gray-200"
 				/>
 				<AnimInput name="Поиск" />
 			</div>

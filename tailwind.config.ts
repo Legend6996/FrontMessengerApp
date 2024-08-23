@@ -16,6 +16,7 @@ const config: Config = {
         main: "1rem"
       },
       boxShadow: {
+        dropdown: '0px 5px 10px 4px rgba(34, 60, 80, 0.2)',
         bottom: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
       }
     }

@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 type Props = {
 	text?: string;
 	onClick?: () => void;
+	onHoverStart?: () => void;
 	className?: string;
 	isLoading?: boolean;
 	disabled?: boolean;
@@ -21,6 +22,7 @@ type Props = {
 const Button: FC<Props> = ({
 	text,
 	onClick,
+  onHoverStart,
 	className,
 	isLoading = false,
 	disabled = false,
@@ -61,6 +63,7 @@ const Button: FC<Props> = ({
 				<motion.button
 					className={buttonClasses}
 					onClick={onClick}
+          onHoverStart={onHoverStart}
 					disabled={disabled || isLoading}
 					type={type}
 					whileTap={{ scale: 0.8 }}

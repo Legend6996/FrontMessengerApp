@@ -4,6 +4,7 @@ import AutoTextArea from "@/components/ui/inputs/autoTextArea/AutoTextArea";
 import {
 	ArrowTopRightOnSquareIcon,
 	ArrowUpIcon,
+	Bars3BottomLeftIcon,
 	EyeIcon,
 	PaperAirplaneIcon,
 	PaperClipIcon,
@@ -13,15 +14,25 @@ import React from "react";
 type Props = {};
 
 const EnterPanel = (props: Props) => {
+	const items = Array(7)
+		.fill(null)
+		.map((_, index) => ({
+			text: `${index + 1} Item`,
+			icon: Bars3BottomLeftIcon,
+			onClick: () => console.log(index),
+		}));
+
 	return (
 		<>
 			<form>
 				<div className="flex items-end gap-2">
 					<div className="flex w-full items-center gap-2 rounded-main bg-body pl-2 pr-5 md:gap-5">
-						<Button
-							icon={PaperClipIcon}
+						<Dropdown
+							items={items}
+              direction="top left"
+							btnIcon={PaperClipIcon}
 							iconClassName="size-5 md:size-7 text-gray-700"
-							className="rounded-main p-2 lg:hover:bg-gray-200"
+							btnClassName="rounded-main p-2 lg:hover:bg-gray-200"
 						/>
 						<AutoTextArea
 							className="py-3 md:py-5"
