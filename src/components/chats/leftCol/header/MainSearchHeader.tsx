@@ -22,7 +22,7 @@ const MainSearchHeader = (props: Props) => {
 					direction="bottom left"
 					items={items}
 					btnIcon={Bars3BottomLeftIcon}
-					iconClassName="size-7 text-gray-700"
+					iconClassName="size-6 text-gray-700"
 					btnClassName="mr-2 rounded-lg p-2 lg:hover:bg-gray-200"
 				/>
 				<AnimInput name="Поиск" />

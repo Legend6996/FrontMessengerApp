@@ -9,7 +9,7 @@ const ChatItem = ({ isActive }: Props) => {
 	return (
 		<>
 			<li
-				className={`flex cursor-pointer duration-200 items-center gap-2 rounded-main p-3 ${isActive ? "bg-primary" : "lg:hover:bg-gray-100"}`}
+				className={`flex cursor-pointer duration-200 items-center gap-2 rounded-main p-2 ${isActive ? "bg-primary" : "lg:hover:bg-gray-100"}`}
 			>
 				<Avatar
 					name="Cesar"

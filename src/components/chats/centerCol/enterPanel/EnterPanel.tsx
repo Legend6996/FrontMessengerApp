@@ -35,14 +35,14 @@ const EnterPanel = (props: Props) => {
 							btnClassName="rounded-main p-2 lg:hover:bg-gray-200"
 						/>
 						<AutoTextArea
-							className="py-3 md:py-5"
+							className="py-3 md:py-4"
 							placeholder="Сообщение"
 						/>
 					</div>
 					<Button
 						icon={PaperAirplaneIcon}
 						iconClassName=" size-5 md:size-6"
-						className="rounded-full bg-body p-3 md:p-5 lg:hover:bg-primary lg:hover:text-white"
+						className="rounded-full bg-body p-3 md:p-4 lg:hover:bg-primary lg:hover:text-white"
 					/>
 				</div>
 			</form>

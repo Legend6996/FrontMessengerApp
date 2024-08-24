@@ -1,6 +1,6 @@
 "use client";
 import { userApi } from "@/servicesApi/UserApi";
-import React from "react";
+import React, { useState } from "react";
 import ChatList from "./leftCol/chats/ChatList";
 import MainSearchHeader from "./leftCol/header/MainSearchHeader";
 import Head from "./centerCol/Head";
@@ -10,6 +10,8 @@ type Props = {};
 
 const Chats = (props: Props) => {
 	const { data: userInfo, isLoading } = userApi.useGetInfoQuery();
+
+  const [isOpenChatsCol, setIsOpenChatsCol] = useState<boolean>(false);
 
 	return (
 		<>
@@ -22,6 +24,8 @@ const Chats = (props: Props) => {
 					<Head
 						name="Bob"
 						status="online"
+            isOpenChatsCol={isOpenChatsCol}
+            setIsOpenChatsCol={setIsOpenChatsCol}
 					/>
 					<MessagesContainer />
 				</div>

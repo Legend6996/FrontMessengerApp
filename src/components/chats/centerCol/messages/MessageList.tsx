@@ -6,7 +6,7 @@ type Props = {};
 const MessageList = (props: Props) => {
 	return (
 		<>
-			<div className="flex flex-col gap-3">
+			<div className="flex flex-col gap-3 pt-2">
 				{Array(10)
 					.fill(null)
 					.map((item, index) => {

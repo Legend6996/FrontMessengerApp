@@ -63,7 +63,7 @@
       return () => {
         document.removeEventListener("click", handleCloseDropdown);
       };
-    }, []);
+    });
 
     const transformOrigin = getTransformOrigin();
 
@@ -83,7 +83,7 @@
           {isOpen && (
             <div className={wrapperListClassNames}>
               <motion.ul
-                className="shadow-dropdown rounded-lg bg-body/80 p-2 backdrop-blur-md"
+                className="shadow-dropdown rounded-lg bg-body/80 px-1 py-2 backdrop-blur-md"
                 initial={{ opacity: 0, scale: 0.4, transformOrigin }}
                 animate={{ opacity: 1, scale: 1, transformOrigin }}
                 exit={{ opacity: 0, scale: 0.4, transformOrigin }}
@@ -94,7 +94,7 @@
                       text={item.text}
                       icon={item.icon}
                       iconClassName="mr-3"
-                      className="text-nowrap rounded-lg px-2 py-2 font-semibold lg:hover:bg-gray-200/90"
+                      className="text-nowrap rounded-lg px-3 py-1 font-semibold lg:hover:bg-gray-200/90"
                       onClick={() => {
                         item.onClick;
                         setIsOpen(false);
