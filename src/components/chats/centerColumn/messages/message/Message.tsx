@@ -12,7 +12,7 @@ const Message = ({ isCurUser, content }: Props) => {
 			<div className="flex gap-2">
 				<div className={`${isCurUser ? "order-2" : "order-1"}`}>
 					<div
-						className={`sticky top-0 hidden self-end md:block`}
+						className={`sticky top-1 hidden self-end md:block`}
 					>
 						<Avatar
 							size="xs"

@@ -1,0 +1,11 @@
+.centeredContainer {
+	@apply mx-auto w-full px-2 md:max-w-[85%] xl:max-w-[65%];
+}
+
+.hideCenterColumn {
+	@apply translate-x-[100vw] sm:translate-x-[27rem] lg:translate-x-0;
+}
+
+.centerColumn {
+	@apply fixed inset-0 z-10 flex h-dvh max-w-[100vw] flex-col bg-gray-100 duration-300 lg:static;
+}

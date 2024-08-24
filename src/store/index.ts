@@ -2,11 +2,13 @@ import { authApi } from "@/servicesApi/AuthApi";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { userReducer, userSlice } from "./reducers/UserSlice";
 import { userApi } from "@/servicesApi/UserApi";
+import { columnsSlice, coolumnsReducer } from "./reducers/ColumnsSlice";
 
 const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [userApi.reducerPath]: userApi.reducer,
-  [userSlice.name]: userReducer
+  [userSlice.name]: userReducer,
+  [columnsSlice.name]: coolumnsReducer
 });
 
 export const setupStore = () => {

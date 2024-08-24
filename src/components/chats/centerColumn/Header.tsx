@@ -2,22 +2,22 @@ import React from "react";
 import Avatar from "../../ui/avatar/Avatar";
 import Button from "@/components/ui/buttons/button/Button";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
-import { boolean } from "zod";
+import { useAppSelector, useActions } from "@/hooks/redux";
 
 type Props = {
 	name: string;
 	img?: string;
 	status: string;
-  setIsOpenChatsCol: (a: boolean) => void;
-  isOpenChatsCol: boolean;
 }; 
 
-const Head = ({ name, img, status, isOpenChatsCol, setIsOpenChatsCol }: Props) => {
+const Header = ({ name, img, status }: Props) => {
+  const { toggleLeftColumn } = useActions();
+  
 	return (
 		<>
 			<div className="bg-body cursor-pointer shadow-bottom z-10 dark:bg-bodyDark w-full">
 				<div className="flex items-center gap-3 px-3 md:px-8 py-2">
-          <Button onClick={() => setIsOpenChatsCol(!isOpenChatsCol)} className="" icon={ArrowLeftIcon}/>
+          <Button onClick={() => toggleLeftColumn()} className="lg:!hidden" icon={ArrowLeftIcon}/>
 					<Avatar
 						name={name}
 						img={img}
@@ -33,4 +33,4 @@ const Head = ({ name, img, status, isOpenChatsCol, setIsOpenChatsCol }: Props) =
 	);
 };
 
-export default Head;
+export default Header;
