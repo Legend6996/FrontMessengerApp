@@ -8,7 +8,7 @@ type Props = {};
 const MessagesContainer = (props: Props) => {
 	return (
 		<>
-			<div className="w-full flex-grow overflow-y-scroll">
+			<div className="flex-grow overflow-y-scroll">
 				<div className={`${styles.centeredContainer} `}>
 					<MessageList />
 				</div>

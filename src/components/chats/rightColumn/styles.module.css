@@ -1,0 +1,7 @@
+.hide {
+  @apply translate-x-[100vw] sm:translate-x-[27rem] lg:translate-x-full;
+}
+
+.rightColumn {
+  @apply duration-300 bg-body fixed top-0 right-0 bottom-0 z-20 flex h-screen max-w-[100vw] flex-col border-l sm:max-w-[27rem] lg:min-w-[350px] lg:max-w-[25vw];
+}

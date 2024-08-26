@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 type Props = {
 	text?: string;
-	onClick?: () => void;
+	onClick?: (e: any) => void;
 	onHoverStart?: () => void;
 	className?: string;
 	isLoading?: boolean;

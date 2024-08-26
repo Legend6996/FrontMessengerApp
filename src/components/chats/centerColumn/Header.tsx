@@ -8,23 +8,42 @@ type Props = {
 	name: string;
 	img?: string;
 	status: string;
-}; 
+};
 
 const Header = ({ name, img, status }: Props) => {
-  const { toggleLeftColumn } = useActions();
-  
+	const {
+		toggleLeftColumn,
+		toggleRightColumn,
+		setIsOpenLeftColumn,
+		setIsOpenRightColumn,
+	} = useActions();
+
 	return (
 		<>
-			<div className="bg-body cursor-pointer shadow-bottom z-10 dark:bg-bodyDark w-full">
-				<div className="flex items-center gap-3 px-3 md:px-8 py-2">
-          <Button onClick={() => toggleLeftColumn()} className="lg:!hidden" icon={ArrowLeftIcon}/>
+			<div
+				onClick={() => {
+					toggleRightColumn();
+					setIsOpenLeftColumn(false);
+				}}
+				className="z-10 w-full cursor-pointer bg-body shadow-bottom dark:bg-bodyDark"
+			>
+				<div className="flex items-center gap-3 px-3 py-2 md:px-8">
+					<Button
+						onClick={(e) => {
+							toggleLeftColumn();
+							setIsOpenRightColumn(false);
+							e.stopPropagation();
+						}}
+						className="lg:!hidden"
+						icon={ArrowLeftIcon}
+					/>
 					<Avatar
 						name={name}
 						img={img}
 						size="sm"
 					/>
 					<div className="flex flex-col justify-center">
-						<div className="md:text-lg !leading-tight font-bold">{name}</div>
+						<div className="font-bold !leading-tight md:text-lg">{name}</div>
 						<span className="text-sm">{status}</span>
 					</div>
 				</div>
