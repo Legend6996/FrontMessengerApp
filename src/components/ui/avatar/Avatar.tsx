@@ -4,12 +4,12 @@ import React from "react";
 
 type Props = {
 	name: string;
-	img?: string;
+	imgPath?: string;
 	size?: "lg" | "md" | "sm" | "xs";
 	className?: string;
 };
 
-const Avatar = ({ name, img, size, className }: Props) => {
+const Avatar = ({ name, imgPath, size, className }: Props) => {
 	const avatarClasses = ClassNames(
 		"rounded-full",
 		{ "size-14 min-h-14 min-w-14 text-xl": size === "lg" },
@@ -19,12 +19,12 @@ const Avatar = ({ name, img, size, className }: Props) => {
 		className || "",
 	);
 
-	if (img) {
+	if (imgPath) {
 		return (
 			<div
 				className={avatarClasses}
 			>
-				<Image src={img} alt={name} layout="fill" objectFit="cover" className={avatarClasses} />
+				<Image src={imgPath} alt={name} layout="fill" objectFit="cover" className={avatarClasses} />
 			</div>
 		);
 	}

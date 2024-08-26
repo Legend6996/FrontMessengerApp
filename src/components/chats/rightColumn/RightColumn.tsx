@@ -1,59 +1,30 @@
 import React from "react";
 import { useActions, useAppSelector } from "@/hooks/redux";
 import styles from "./styles.module.css";
+import Header from "./header/Header";
+import ProfileImage from "./profileImage/ProfileImage";
+import { AtSymbolIcon, LinkIcon } from "@heroicons/react/24/outline";
+import Button from "@/components/ui/buttons/button/Button";
+import SharedContent from "./sharedContent/SharedContent";
 
 type Props = {};
 
 const RightColumn = (props: Props) => {
 	const { isOpenRightColumn } = useAppSelector((state) => state.columns);
-	const { setIsOpenRightColumn } = useActions();
 
 	return (
 		<>
 			<div
 				className={`${styles.rightColumn} ${isOpenRightColumn ? "translate-x-0" : styles.hide}`}
 			>
-				<div className="flex flex-col gap-3 overflow-y-auto">
-					<div
-						onClick={() => setIsOpenRightColumn(false)}
-						className="min-h-72 bg-blue-300"
-					></div>
-					<div className="bg-blue-200">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-						perspiciatis, molestiae dolorum veniam, cupiditate accusamus debitis
-						voluptates ipsam repellat ullam dolorem. In dolorem nisi officia quo
-						ea voluptate sunt sit.
+				<Header />
+				<div className="flex flex-col gap-3 overflow-y-scroll">
+					<ProfileImage />
+					<div className="flex cursor-pointer gap-4 rounded-main p-4 duration-200 lg:hover:bg-gray-200">
+						<AtSymbolIcon className="size-6" />
+						Bob
 					</div>
-					<div className="bg-blue-200">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-						perspiciatis, molestiae dolorum veniam, cupiditate accusamus debitis
-						voluptates ipsam repellat ullam dolorem. In dolorem nisi officia quo
-						ea voluptate sunt sit.
-					</div>
-					<div className="bg-blue-200">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-						perspiciatis, molestiae dolorum veniam, cupiditate accusamus debitis
-						voluptates ipsam repellat ullam dolorem. In dolorem nisi officia quo
-						ea voluptate sunt sit.
-					</div>
-					<div className="bg-blue-200">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-						perspiciatis, molestiae dolorum veniam, cupiditate accusamus debitis
-						voluptates ipsam repellat ullam dolorem. In dolorem nisi officia quo
-						ea voluptate sunt sit.
-					</div>
-          <div className="bg-blue-200">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-						perspiciatis, molestiae dolorum veniam, cupiditate accusamus debitis
-						voluptates ipsam repellat ullam dolorem. In dolorem nisi officia quo
-						ea voluptate sunt sit.
-					</div>
-          <div className="bg-blue-200">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-						perspiciatis, molestiae dolorum veniam, cupiditate accusamus debitis
-						voluptates ipsam repellat ullam dolorem. In dolorem nisi officia quo
-						ea voluptate sunt sit.
-					</div>
+          <SharedContent />
 				</div>
 			</div>
 		</>

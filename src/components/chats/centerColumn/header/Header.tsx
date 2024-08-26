@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../../ui/avatar/Avatar";
+import Avatar from "../../../ui/avatar/Avatar";
 import Button from "@/components/ui/buttons/button/Button";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import { useAppSelector, useActions } from "@/hooks/redux";
@@ -39,12 +39,12 @@ const Header = ({ name, img, status }: Props) => {
 					/>
 					<Avatar
 						name={name}
-						img={img}
+						imgPath={img}
 						size="sm"
 					/>
-					<div className="flex flex-col justify-center">
-						<div className="font-bold !leading-tight md:text-lg">{name}</div>
-						<span className="text-sm">{status}</span>
+					<div className="flex h-9 flex-col justify-between">
+						<div className="font-bold !leading-none md:text-lg">{name}</div>
+						<span className="text-xs !leading-none">{status}</span>
 					</div>
 				</div>
 			</div>

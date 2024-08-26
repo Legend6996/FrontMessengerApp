@@ -2,7 +2,7 @@
 import React, { Component, useEffect, useState } from "react";
 import MessagesContainer from "./MessagesContainer";
 import { useAppSelector } from "@/hooks/redux";
-import Header from "./Header";
+import Header from "./header/Header";
 import styles from "./style.module.css";
 
 type Props = {};
