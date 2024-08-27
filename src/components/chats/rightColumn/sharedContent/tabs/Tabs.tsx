@@ -1,5 +1,5 @@
 import React from "react";
-import { TabNames } from "./SharedContent";
+import { TabNames } from "../SharedContent";
 
 interface Tabs {
 	name: string;
@@ -31,7 +31,7 @@ const Tabs = ({ curTab, setCurTab }: Props) => {
 						<li
               key={item.value}
 							onClick={() => setCurTab(item.value)}
-							className={`cursor-pointer p-2 border-body border-b-[3px] ${curTab === item.value && "!border-primary text-primary"}`}
+							className={`cursor-pointer p-2 border-body border-b-[3px] ${curTab === item.value ? "!border-primary text-primary" : "text-gray-400"}`}
 						>
 							{item.name}
 						</li>

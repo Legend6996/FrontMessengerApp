@@ -1,24 +1,16 @@
-import Image from "next/image";
 import React from "react";
+import AdaptiveImg, { IAdaptiveImg } from "./AdaptiveImg";
 
-type Props = {
-	imgClass?: string;
-	wrapClass?: string;
-	imgPath?: string;
-	name: string;
-};
 
-const ProfileAvatar = ({ imgClass, wrapClass, imgPath, name }: Props) => {
+const ProfileAvatar = ({ imgClass, wrapClass, imgPath, name }: IAdaptiveImg) => {
 	if (imgPath) {
 		return (
-			<div className={`relative w-full pt-[95%] ${wrapClass}`}>
-				<Image
-					alt={name}
-					src={imgPath}
-					fill
-					className={`absolute left-0 top-0 h-full w-full object-cover ${imgClass}`}
-				/>
-			</div>
+			<AdaptiveImg 
+        imgClass={imgClass}
+        wrapClass={wrapClass}
+        imgPath={imgPath}
+        name={name}
+      />
 		);
 	}
 

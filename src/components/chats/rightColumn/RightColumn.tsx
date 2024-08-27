@@ -1,11 +1,11 @@
 import React from "react";
-import { useActions, useAppSelector } from "@/hooks/redux";
+import { useAppSelector } from "@/hooks/redux";
 import styles from "./styles.module.css";
 import Header from "./header/Header";
 import ProfileImage from "./profileImage/ProfileImage";
 import { AtSymbolIcon, LinkIcon } from "@heroicons/react/24/outline";
-import Button from "@/components/ui/buttons/button/Button";
 import SharedContent from "./sharedContent/SharedContent";
+import Tile from "@/components/ui/tiles/Tile";
 
 type Props = {};
 
@@ -20,11 +20,13 @@ const RightColumn = (props: Props) => {
 				<Header />
 				<div className="flex flex-col gap-3 overflow-y-scroll">
 					<ProfileImage />
-					<div className="flex cursor-pointer gap-4 rounded-main p-4 duration-200 lg:hover:bg-gray-200">
-						<AtSymbolIcon className="size-6" />
-						Bob
-					</div>
-          <SharedContent />
+					<ul className="px-2">
+						<Tile className="p-4 gap-4">
+							<AtSymbolIcon className="size-6" />
+							Bob
+						</Tile>
+					</ul>
+					<SharedContent />
 				</div>
 			</div>
 		</>

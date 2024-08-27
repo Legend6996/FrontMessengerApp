@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Tabs from "./Tabs";
+import Tabs from "./tabs/Tabs";
 import MediaList from "./media/MediaList";
 import AudioList from "./audio/AudioList";
 

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import AdaptiveImg from "@/components/ui/avatar/AdaptiveImg";
 import React from "react";
 
 export interface IMediaItem {
@@ -9,14 +9,10 @@ export interface IMediaItem {
 const MediaItem = ({ id, path }: IMediaItem) => {
 	return (
 		<>
-			<div className={`relative w-full pt-[100%]`}>
-				<Image
-					alt="media"
-					src={path}
-					fill
-					className={`absolute left-0 top-0 h-full w-full object-cover`}
-				/>
-			</div>
+      <AdaptiveImg 
+        name="media"
+        imgPath={path}
+      />
 		</>
 	);
 };

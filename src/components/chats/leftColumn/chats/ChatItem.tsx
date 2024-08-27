@@ -1,6 +1,7 @@
 import React from "react";
 import Avatar from "../../../ui/avatar/Avatar";
 import { useActions } from "@/hooks/redux";
+import Tile from "@/components/ui/tiles/Tile";
 
 type Props = {
 	isActive: boolean;
@@ -10,9 +11,10 @@ const ChatItem = ({ isActive }: Props) => {
 	const { setIsOpenLeftColumn } = useActions();
 	return (
 		<>
-			<li
-				onClick={() => setIsOpenLeftColumn(false)}
-				className={`flex cursor-pointer items-center gap-2 rounded-main p-2 duration-200 ${isActive ? "bg-primary" : "lg:hover:bg-gray-100"}`}
+			<Tile
+				className="items-center gap-2 p-2"
+				isActive={isActive}
+        onClick={() => setIsOpenLeftColumn(false)}
 			>
 				<Avatar
 					name="Cesar"
@@ -27,7 +29,7 @@ const ChatItem = ({ isActive }: Props) => {
 						A molestias enim et!
 					</p>
 				</div>
-			</li>
+			</Tile>
 		</>
 	);
 };
