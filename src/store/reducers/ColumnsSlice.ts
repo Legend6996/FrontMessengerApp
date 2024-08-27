@@ -1,13 +1,17 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
+type LeftColumnState = "chats" | "settings"
+
 interface IColumns {
 	isOpenLeftColumn: boolean;
 	isOpenRightColumn: boolean;
+  leftColumnState: LeftColumnState;
 }
 
 const initialColumns: IColumns = {
 	isOpenLeftColumn: true,
 	isOpenRightColumn: false,
+  leftColumnState: "chats"
 };
 
 export const columnsSlice = createSlice({
@@ -30,6 +34,10 @@ export const columnsSlice = createSlice({
       console.log("right " + state.isOpenRightColumn)
 			state.isOpenRightColumn = !state.isOpenRightColumn;
 		},
+    setLeftColumnState(state, action: PayloadAction<LeftColumnState>) {
+      console.log(action.payload);
+      state.leftColumnState = action.payload;
+    }
 	},
 });
 

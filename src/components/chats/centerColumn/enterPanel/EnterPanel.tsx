@@ -2,10 +2,7 @@ import Button from "@/components/ui/buttons/button/Button";
 import Dropdown from "@/components/ui/dropdown/Dropdown";
 import AutoTextArea from "@/components/ui/inputs/autoTextArea/AutoTextArea";
 import {
-	ArrowTopRightOnSquareIcon,
-	ArrowUpIcon,
 	Bars3BottomLeftIcon,
-	EyeIcon,
 	PaperAirplaneIcon,
 	PaperClipIcon,
 } from "@heroicons/react/24/outline";

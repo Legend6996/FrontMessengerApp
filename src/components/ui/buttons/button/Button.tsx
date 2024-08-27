@@ -41,12 +41,12 @@ const Button: FC<Props> = ({
 	);
 
 	const renderContent = () => (
-		<div className="flex items-center">
+    <>
 			{Icon && !isLoading && (
 				<Icon className={`size-6 ${text ? "mr-2" : ""} ${iconClassName}`} />
 			)}
 			{isLoading ? <Spinner className="size-6 fill-primary" /> : text}
-		</div>
+    </>
 	);
 
 	return (

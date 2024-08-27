@@ -16,7 +16,7 @@ const Header = (props: Props) => {
 				iconClassName="!size-8"
 				className="rounded-main p-2 lg:hover:bg-gray-200"
 			/>
-			<h1 className="text-xl font-semibold">Инфо</h1>
+			<h1 className="text-xl font-medium">Инфо</h1>
 		</div>
 	);
 };
