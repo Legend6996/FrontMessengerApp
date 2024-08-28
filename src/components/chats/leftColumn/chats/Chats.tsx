@@ -4,7 +4,7 @@ import Header from "./header/Header";
 
 type Props = {};
 
-const ChatList = (props: Props) => {
+const Chats = (props: Props) => {
 	return (
 		<>
       <Header />
@@ -25,4 +25,4 @@ const ChatList = (props: Props) => {
 	);
 };
 
-export default ChatList;
+export default Chats;

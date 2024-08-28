@@ -27,6 +27,7 @@ const Header = (props: Props) => {
 				<div className="flex gap-2">
 					<Button
 						icon={PencilIcon}
+						onClick={() => setLeftColumnState("profileEdit")}
 						iconClassName="size-6"
 						className="rounded-main p-2 lg:hover:bg-gray-200"
 					/>

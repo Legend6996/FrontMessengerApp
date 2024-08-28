@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-type LeftColumnState = "chats" | "settings"
+type LeftColumnState = "chats" | "settings" | "profileEdit"
 
 interface IColumns {
 	isOpenLeftColumn: boolean;
