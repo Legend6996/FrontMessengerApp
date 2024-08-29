@@ -1,4 +1,4 @@
-import ProfileAvatar from "@/components/ui/avatar/ProfileAvatar";
+import ProfileAvatar from "@/components/ui/avatars/ProfileAvatar";
 import Tile from "@/components/ui/tiles/Tile";
 import {
 	AtSymbolIcon,
@@ -22,7 +22,7 @@ const ProfileInfo = ({ name, login, phone, email, imgPath }: Props) => {
 				name={name}
 				imgPath={imgPath}
 			/>
-			<ul className="py-3 px-2">
+			<ul className="px-2 py-3">
 				{login && (
 					<Tile className="flex gap-4 p-4">
 						<AtSymbolIcon className="size-6" />

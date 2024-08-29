@@ -1,4 +1,4 @@
-import Avatar from "@/components/ui/avatar/Avatar";
+import Avatar from "@/components/ui/avatars/Avatar";
 import React from "react";
 
 type Props = {
@@ -11,9 +11,7 @@ const Message = ({ isCurUser, content }: Props) => {
 		<div className={`w-full max-w-[70%] ${isCurUser ? "self-end" : ""}`}>
 			<div className="flex gap-2">
 				<div className={`${isCurUser ? "order-2" : "order-1"}`}>
-					<div
-						className={`sticky top-1 hidden self-end md:block`}
-					>
+					<div className={`sticky top-1 hidden self-end md:block`}>
 						<Avatar
 							size="xs"
 							name="Bob"

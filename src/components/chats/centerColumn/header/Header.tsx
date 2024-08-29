@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../../../ui/avatar/Avatar";
+import Avatar from "../../../ui/avatars/Avatar";
 import Button from "@/components/ui/buttons/button/Button";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import { useAppSelector, useActions } from "@/hooks/redux";

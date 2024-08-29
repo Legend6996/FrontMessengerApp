@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../../../ui/avatar/Avatar";
+import Avatar from "../../../ui/avatars/Avatar";
 import { useActions } from "@/hooks/redux";
 import Tile from "@/components/ui/tiles/Tile";
 
@@ -14,7 +14,7 @@ const ChatItem = ({ isActive }: Props) => {
 			<Tile
 				className="flex items-center gap-2 p-2"
 				isActive={isActive}
-        onClick={() => setIsOpenLeftColumn(false)}
+				onClick={() => setIsOpenLeftColumn(false)}
 			>
 				<Avatar
 					name="Cesar"

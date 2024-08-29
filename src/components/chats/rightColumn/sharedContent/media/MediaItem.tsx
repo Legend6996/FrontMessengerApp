@@ -1,18 +1,18 @@
-import AdaptiveImg from "@/components/ui/avatar/AdaptiveImg";
+import AdaptiveImg from "@/components/ui/imgs/AdaptiveImg";
 import React from "react";
 
 export interface IMediaItem {
-  id: number;
-  path: string;
+	id: number;
+	path: string;
 }
 
 const MediaItem = ({ id, path }: IMediaItem) => {
 	return (
 		<>
-      <AdaptiveImg 
-        name="media"
-        imgPath={path}
-      />
+			<AdaptiveImg
+				name="media"
+				imgPath={path}
+			/>
 		</>
 	);
 };
