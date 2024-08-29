@@ -12,7 +12,7 @@ const ChatItem = ({ isActive }: Props) => {
 	return (
 		<>
 			<Tile
-				className="items-center gap-2 p-2"
+				className="flex items-center gap-2 p-2"
 				isActive={isActive}
         onClick={() => setIsOpenLeftColumn(false)}
 			>

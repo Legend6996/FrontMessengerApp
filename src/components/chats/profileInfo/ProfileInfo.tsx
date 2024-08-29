@@ -24,19 +24,19 @@ const ProfileInfo = ({ name, login, phone, email, imgPath }: Props) => {
 			/>
 			<ul className="py-3 px-2">
 				{login && (
-					<Tile className="gap-4 p-4">
+					<Tile className="flex gap-4 p-4">
 						<AtSymbolIcon className="size-6" />
 						{login}
 					</Tile>
 				)}
 				{phone && (
-					<Tile className="gap-4 p-4">
+					<Tile className="flex gap-4 p-4">
 						<PhoneIcon className="size-6" />
 						{phone}
 					</Tile>
 				)}
 				{email && (
-					<Tile className="gap-4 p-4">
+					<Tile className="flex gap-4 p-4">
 						<EnvelopeIcon className="size-6" />
 						{email}
 					</Tile>
