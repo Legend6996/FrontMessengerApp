@@ -22,7 +22,7 @@ type Props = {
 const Button: FC<Props> = ({
 	text,
 	onClick,
-  onHoverStart,
+	onHoverStart,
 	className,
 	isLoading = false,
 	disabled = false,
@@ -41,12 +41,12 @@ const Button: FC<Props> = ({
 	);
 
 	const renderContent = () => (
-    <>
+		<>
 			{Icon && !isLoading && (
 				<Icon className={`size-6 ${text ? "mr-2" : ""} ${iconClassName}`} />
 			)}
 			{isLoading ? <Spinner className="size-6 fill-primary" /> : text}
-    </>
+		</>
 	);
 
 	return (
@@ -63,10 +63,10 @@ const Button: FC<Props> = ({
 				<motion.button
 					className={buttonClasses}
 					onClick={onClick}
-          onHoverStart={onHoverStart}
+					onHoverStart={onHoverStart}
 					disabled={disabled || isLoading}
 					type={type}
-					whileTap={{ scale: 0.8 }}
+					whileTap={{ scale: 0.9 }}
 				>
 					{renderContent()}
 				</motion.button>

@@ -35,13 +35,13 @@ export const registerShchema = z
 	});
 
 export interface ILogin {
-  email: string,
-  password: string,
+	email: string;
+	password: string;
 }
 
 export interface ITokens {
-  accessToken: string;
-  refreshToken: string;
+	accessToken: string;
+	refreshToken: string;
 }
 
 export type IRegister = z.infer<typeof registerShchema>;

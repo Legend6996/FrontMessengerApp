@@ -10,6 +10,7 @@ import { saveRefreshToken, saveToken } from "@/utils/helpers/JwtHelper";
 import { useRouter } from "next/navigation";
 import { APP_PAGES } from "@/constants/pages-url";
 import { showToast } from "@/lib/toast/ShowToast";
+import GoogleLogo from "@/assets/icons/GoogleLogo";
 
 type Props = {};
 
@@ -45,41 +46,52 @@ const Login = (props: Props) => {
 	};
 
 	return (
-		<form
-			className="flex flex-col gap-8"
-			onSubmit={handleSubmit(onSubmit)}
-		>
-			<Controller
-				name="email"
-				control={control}
-				render={({ field: { value, onChange } }) => (
-					<AnimInput
-						name="Email"
-						value={value}
-						setValue={onChange}
-					/>
-				)}
-			/>
-			<Controller
-				name="password"
-				control={control}
-				render={({ field: { value, onChange } }) => (
-					<AnimPasswordInput
-						name="Пароль"
-						type="password"
-						value={value}
-						setValue={onChange}
-					/>
-				)}
-			/>
-			<Button
-				text="Войти"
-				type="submit"
-				isLoading={isLoading}
-				size="md"
-				className="rounded-lg text-primary lg:hover:bg-primaryLight3"
-			/>
-		</form>
+		<>
+			<form
+				className="flex flex-col gap-8"
+				onSubmit={handleSubmit(onSubmit)}
+			>
+				<Controller
+					name="email"
+					control={control}
+					render={({ field: { value, onChange } }) => (
+						<AnimInput
+							name="Email"
+							value={value}
+							setValue={onChange}
+						/>
+					)}
+				/>
+				<Controller
+					name="password"
+					control={control}
+					render={({ field: { value, onChange } }) => (
+						<AnimPasswordInput
+							name="Пароль"
+							type="password"
+							value={value}
+							setValue={onChange}
+						/>
+					)}
+				/>
+				<Button
+					text="Войти"
+					type="submit"
+					isLoading={isLoading}
+					size="md"
+					className="rounded-lg border border-primaryLight2 text-primary lg:hover:bg-primaryLight3"
+				/>
+			</form>
+			<div className="mt-6 flex justify-center">
+				<Button
+					icon={GoogleLogo}
+					text="Вход через Google"
+					onClick={() => router.push("http://localhost:5051/api/auth/login-google")}
+					iconClassName="size-6"
+					className="w-full rounded-lg border border-gray-200 p-2 text-gray-400 lg:hover:border-primaryLight3 lg:hover:bg-primaryLight3 lg:hover:text-primary"
+				/>
+			</div>
+		</>
 	);
 };
 

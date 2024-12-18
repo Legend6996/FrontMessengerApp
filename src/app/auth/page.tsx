@@ -25,46 +25,46 @@ const AuthPage: NextPage = (props: Props) => {
 								Messenger App
 							</h1>
 							<Switch
-							isLogin={isLogin}
-							setIsLogin={setIsLogin}
-						/>
+								isLogin={isLogin}
+								setIsLogin={setIsLogin}
+							/>
 						</motion.div>
 						<AnimatePresence
-              initial={false}
-              mode="wait"
-            >
-              {isLogin ? (
-                <motion.div
-                  key={"login"}
-                  layout
-                  initial="hide"
-                  animate="show"
-                  exit="hide"
-                  variants={{
-                    show: { opacity: 1, x: "0%" },
-                    hide: { opacity: 0, x: "-50%" },
-                  }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Login />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key={"register"}
-                  layout
-                  initial="hide"
-                  animate="show"
-                  exit="hide"
-                  variants={{
-                    show: { opacity: 1, x: "0%" },
-                    hide: { opacity: 0, x: "50%" },
-                  }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Register />
-                </motion.div>
-              )}
-            </AnimatePresence>
+							initial={false}
+							mode="wait"
+						>
+							{isLogin ? (
+								<motion.div
+									key={"login"}
+									layout
+									initial="hide"
+									animate="show"
+									exit="hide"
+									variants={{
+										show: { opacity: 1, x: "0%" },
+										hide: { opacity: 0, x: "-50%" },
+									}}
+									transition={{ duration: 0.2 }}
+								>
+									<Login />
+								</motion.div>
+							) : (
+								<motion.div
+									key={"register"}
+									layout
+									initial="hide"
+									animate="show"
+									exit="hide"
+									variants={{
+										show: { opacity: 1, x: "0%" },
+										hide: { opacity: 0, x: "50%" },
+									}}
+									transition={{ duration: 0.2 }}
+								>
+									<Register />
+								</motion.div>
+							)}
+						</AnimatePresence>
 					</LayoutGroup>
 				</div>
 			</div>

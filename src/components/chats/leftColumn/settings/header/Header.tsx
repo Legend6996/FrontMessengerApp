@@ -6,11 +6,21 @@ import {
 	PencilIcon,
 } from "@heroicons/react/24/outline";
 import { useActions } from "@/hooks/redux";
+import { destroyRefreshToken, destroyToken } from "@/utils/helpers/JwtHelper";
+import { useRouter } from "next/navigation";
+import { APP_PAGES } from "@/constants/pages-url";
 
 type Props = {};
 
 const Header = (props: Props) => {
+	const router = useRouter();
 	const { setLeftColumnState } = useActions();
+
+	const logout = () => {
+		destroyToken();
+		destroyRefreshToken();
+		router.replace(APP_PAGES.AUTH);
+	};
 
 	return (
 		<>
@@ -34,6 +44,7 @@ const Header = (props: Props) => {
 					<Button
 						icon={ArrowRightStartOnRectangleIcon}
 						iconClassName="size-6"
+						onClick={logout}
 						className="rounded-main p-2 lg:hover:bg-gray-200"
 					/>
 				</div>
