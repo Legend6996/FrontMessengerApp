@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { authApi } from "@/servicesApi/AuthApi";
 import { saveRefreshToken, saveToken } from "@/utils/helpers/JwtHelper";
@@ -7,19 +7,29 @@ import { APP_PAGES } from "@/constants/pages-url";
 import Spinner from "@/components/ui/spinner/Spinner";
 import Button from "@/components/ui/buttons/button/Button";
 import ArrowLeftIcon from "@heroicons/react/24/outline/esm/ArrowLeftIcon";
+import { NextPage } from "next";
 
-const LoginGoogle = () => {
+type Props = {
+	params: {
+		oauthProvider: string;
+	};
+	searchParams: {
+		code: string;
+	};
+};
+
+const OAuthPage: NextPage<Props> = (props: Props) => {
 	const router = useRouter();
-	const searchParams = useSearchParams();
-	const code = searchParams.get("code");
-	const [postLoginWithGoogle, { isLoading, error, data: tokens }] =
-		authApi.useLoginWithGoogleMutation();
+	const provider = props.params.oauthProvider;
+	const code = props.searchParams.code;
+	const [postLoginWithOAuth, { isLoading, error, data: tokens }] =
+		authApi.useLoginWithOAuthMutation();
 
 	useEffect(() => {
 		if (code) {
-			postLoginWithGoogle(code as string);
+			postLoginWithOAuth({ provider, code });
 		}
-	}, [code, postLoginWithGoogle]);
+	}, [code, postLoginWithOAuth]);
 
 	useEffect(() => {
 		if (tokens) {
@@ -52,4 +62,4 @@ const LoginGoogle = () => {
 	);
 };
 
-export default LoginGoogle;
+export default OAuthPage;

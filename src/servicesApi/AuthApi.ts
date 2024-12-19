@@ -13,11 +13,11 @@ export const authApi = createApi({
 				body: loginData,
 			}),
 		}),
-		loginWithGoogle: builder.mutation<ITokens, string>({
-			query: (googleCode) => ({
-				url: "/login-with-google",
+		loginWithOAuth: builder.mutation<ITokens, { provider: string; code: string }>({
+			query: ({ provider, code }) => ({
+				url: `/login-with/${provider}`,
 				method: "POST",
-				body: JSON.stringify(googleCode),
+				body: JSON.stringify(code),
 			}),
 		}),
 		register: builder.mutation<ITokens, IRegister>({

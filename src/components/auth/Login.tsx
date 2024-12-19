@@ -10,7 +10,8 @@ import { saveRefreshToken, saveToken } from "@/utils/helpers/JwtHelper";
 import { useRouter } from "next/navigation";
 import { APP_PAGES } from "@/constants/pages-url";
 import { showToast } from "@/lib/toast/ShowToast";
-import GoogleLogo from "@/assets/icons/GoogleLogo";
+import GoogleLogo from "@/assets/logos/GoogleLogo";
+import YandexLogo from "@/assets/logos/YandexLogo";
 
 type Props = {};
 
@@ -82,11 +83,18 @@ const Login = (props: Props) => {
 					className="rounded-lg border border-primaryLight2 text-primary lg:hover:bg-primaryLight3"
 				/>
 			</form>
-			<div className="mt-6 flex justify-center">
+			<div className="mt-6 flex flex-col gap-5">
 				<Button
 					icon={GoogleLogo}
 					text="Вход через Google"
-					onClick={() => router.push("http://localhost:5051/api/auth/login-google")}
+					onClick={() => router.push(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login/google`)}
+					iconClassName="size-6"
+					className="w-full rounded-lg border border-gray-200 p-2 text-gray-400 lg:hover:border-primaryLight3 lg:hover:bg-primaryLight3 lg:hover:text-primary"
+				/>
+				<Button
+					icon={YandexLogo}
+					text="Вход через Яндекс"
+					onClick={() => router.push(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login/yandex`)}
 					iconClassName="size-6"
 					className="w-full rounded-lg border border-gray-200 p-2 text-gray-400 lg:hover:border-primaryLight3 lg:hover:bg-primaryLight3 lg:hover:text-primary"
 				/>

@@ -21,7 +21,7 @@ interface RefreshTokenResponse {
 
 export const baseQuery = (basePath: string) =>
 	fetchBaseQuery({
-		baseUrl: `${process.env.NEXT_PUBLIC_API_URL}api/${basePath}`,
+		baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/api/${basePath}`,
 		credentials: "include",
 		headers: {
 			"Content-Type": "application/json",
